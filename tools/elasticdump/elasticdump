@@ -3,50 +3,50 @@
 function elasticdump_analyzer
 {
 
-    if [ -z $SRC $DST ]; then
+    if [ -z $1 $2 ]; then
         echo "Usage : ./elasticdump SRC_INDEX DST_INDEX"
     else
-        elasticdump   --input=http://localhost:9200/${SRC} --output=http://localhost:9200/${DST} --type=analyzer
+        elasticdump   --input=http://localhost:9200/$1 --output=http://localhost:9200/$2 --type=analyzer
     fi
 }
 
 function elasticdump_mapping
 {
 
-    if [ -z $SRC $DST ]; then
+    if [ -z $1 $2 ]; then
         echo "Usage : ./elasticdump SRC_INDEX DST_INDEX"
     else
-        elasticdump   --input=http://localhost:9200/${SRC} --output=http://localhost:9200/${DST} --type=mapping
+        elasticdump   --input=http://localhost:9200/$1 --output=http://localhost:9200/$2 --type=mapping
     fi
 }
 
 function elasticdump_data
 {
 
-    if [ -z $SRC $DST ]; then
+    if [ -z $1 $2 ]; then
         echo "Usage : ./elasticdump SRC_INDEX DST_INDEX"
     else
-        elasticdump   --input=http://localhost:9200/${SRC} --output=http://localhost:9200/${DST} --type=data
+        elasticdump   --input=http://localhost:9200/$1 --output=http://localhost:9200/$2 --type=data
     fi
 }
 
 function elasticdump_mapping_to_local_file
 {
 
-    if [ -z $SRC ]; then
+    if [ -z $1 ]; then
         echo "Usage : ./elasticdump SRC_INDEX"
     else
-        elasticdump   --input=http://localhost:9200/${SRC} --output=./local_mapping.json --type=data
+        elasticdump   --input=http://localhost:9200/$1 --output=./local_mapping.json --type=data
     fi
 }
 
 function elasticdump_data_to_local_file
 {
 
-    if [ -z $SRC $DST ]; then
+    if [ -z $1 ]; then
         echo "Usage : ./elasticdump SRC_INDEX"
     else
-        elasticdump   --input=http://localhost:9200/${SRC} --output=./local_data.json --type=data
+        elasticdump   --input=http://localhost:9200/$1 --output=./local_data.json --type=data
     fi
 }
 
