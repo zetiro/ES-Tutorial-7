@@ -1,0 +1,2 @@
+---
+filebeat_download_url: "http://ec2-18-225-3-47.us-east-2.compute.amazonaws.com/filebeat-{{ filebeat_version }}-x86_64.rpm"

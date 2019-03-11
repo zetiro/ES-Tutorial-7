@@ -1,0 +1,17 @@
+#!/bin/sh
+
+ES=$1
+SRC=$2
+DST=$3
+
+
+if [ -z $ES $SRC $DST ]; then
+    echo "Usage : ./bulk ec2-x-xx-xx-xxx.ap-southeast-1.compute.amazonaws.com:9200"
+else
+    elasticdump   --input=http://${ES}/bank   --output=http://${ES}/bank2   --type=analyzer
+    elasticdump   --input=http://${ES}/bank   --output=http://${ES}/bank2   --type=mapping
+    elasticdump   --input=http://${ES}/bank   --output=http://${ES}/bank2   --type=data
+    elasticdump   --input=http://${ES}/bank   --output=~/bank.json   --type=mapping
+    elasticdump   --input=http://${ES}/bank   --output=~/bank.json   --type=data
+fi
+

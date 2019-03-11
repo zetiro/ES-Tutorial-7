@@ -1,0 +1,19 @@
+client:
+  hosts:
+    - ec2-18-225-3-47.us-east-2.compute.amazonaws.com
+  port: 9200
+  url_prefix:
+  use_ssl: False
+  certificate:
+  client_cert:
+  client_key:
+  ssl_no_validate: False
+  http_auth:
+  timeout: 30
+  master_only: False
+
+logging:
+  loglevel: INFO
+  logfile: /home/centos/curator/log/es.log
+  logformat: default
+  blacklist: ['elasticsearch', 'urllib3']

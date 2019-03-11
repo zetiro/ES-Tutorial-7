@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [ -z $1 ]; then
+    echo "Input Your ES FQDN"
+else
+    while(true);
+    do
+        ./bulk $1 > /dev/null;
+        ./search_test.py --url $1 --threads 1 --requests 1 --index_name bank;
+    done
+fi
