@@ -28,7 +28,7 @@ function configure_es_template
 
 }
 
-function install_curator_package
+function install_elasticdump_package
 {
     sudo yum -y install npm git
     cd tools/elasticdump
@@ -58,7 +58,7 @@ fi
 case "$1" in
         "1" ) install_curator_package;;
         "2" ) configure_es_template;;
-        "3" ) install_curator_package;;
+        "3" ) install_elasticdump_package;;
         "4" ) install_ansible_package;;
         *) echo "Incorrect Command" ;;
 esac
