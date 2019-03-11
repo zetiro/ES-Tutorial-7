@@ -1,17 +1,73 @@
 #!/bin/sh
 
-ES=$1
-SRC=$2
-DST=$3
+function elasticdump_analyzer
+{
 
+    if [ -z $SRC $DST ]; then
+        echo "Usage : ./elasticdump SRC_INDEX DST_INDEX"
+    else
+        elasticdump   --input=http://localhost:9200/${SRC} --output=http://localhost:9200/${DST} --type=analyzer
+    fi
+}
 
-if [ -z $ES $SRC $DST ]; then
-    echo "Usage : ./bulk ec2-x-xx-xx-xxx.ap-southeast-1.compute.amazonaws.com:9200"
-else
-    elasticdump   --input=http://${ES}/bank   --output=http://${ES}/bank2   --type=analyzer
-    elasticdump   --input=http://${ES}/bank   --output=http://${ES}/bank2   --type=mapping
-    elasticdump   --input=http://${ES}/bank   --output=http://${ES}/bank2   --type=data
-    elasticdump   --input=http://${ES}/bank   --output=~/bank.json   --type=mapping
-    elasticdump   --input=http://${ES}/bank   --output=~/bank.json   --type=data
+function elasticdump_mapping
+{
+
+    if [ -z $SRC $DST ]; then
+        echo "Usage : ./elasticdump SRC_INDEX DST_INDEX"
+    else
+        elasticdump   --input=http://localhost:9200/${SRC} --output=http://localhost:9200/${DST} --type=mapping
+    fi
+}
+
+function elasticdump_data
+{
+
+    if [ -z $SRC $DST ]; then
+        echo "Usage : ./elasticdump SRC_INDEX DST_INDEX"
+    else
+        elasticdump   --input=http://localhost:9200/${SRC} --output=http://localhost:9200/${DST} --type=data
+    fi
+}
+
+function elasticdump_mapping_to_local_file
+{
+
+    if [ -z $SRC ]; then
+        echo "Usage : ./elasticdump SRC_INDEX"
+    else
+        elasticdump   --input=http://localhost:9200/${SRC} --output=./local_mapping.json --type=data
+    fi
+}
+
+function elasticdump_data_to_local_file
+{
+
+    if [ -z $SRC $DST ]; then
+        echo "Usage : ./elasticdump SRC_INDEX"
+    else
+        elasticdump   --input=http://localhost:9200/${SRC} --output=./local_data.json --type=data
+    fi
+}
+
+if [ -z $1 ]; then
+        echo "##################### Menu ##############"
+        echo " $ ./elasticdump [Command]"
+        echo "#####################%%%%%%##############"
+        echo "         1 : elasticdump analyzer"
+        echo "         2 : elasticdump mapping"
+        echo "         3 : elasticdump data"
+        echo "         4 : elasticdump mapping to local file"
+        echo "         5 : elasticdump data to local file"
+        echo "#########################################";
+        exit 1;
 fi
 
+case "$1" in
+        "1" ) elasticdump_analyzer $2 $3;;
+        "2" ) elasticdump_mapping $2 $3;;
+        "3" ) elasticdump_data $2 $3;;
+        "4" ) elasticdump_mapping_to_local_file $2;;
+        "5" ) elasticdump_data_to_local_file $2;;
+        *) echo "Incorrect Command" ;;
+esac
