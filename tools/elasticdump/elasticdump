@@ -3,7 +3,7 @@
 function elasticdump_analyzer
 {
 
-    if [ -z $1 $2 ]; then
+    if [ -z $1 ] || [ -z $2 ]; then
         echo "Usage : ./elasticdump SRC_INDEX DST_INDEX"
     else
         elasticdump   --input=http://localhost:9200/$1 --output=http://localhost:9200/$2 --type=analyzer
@@ -13,7 +13,7 @@ function elasticdump_analyzer
 function elasticdump_mapping
 {
 
-    if [ -z $1 $2 ]; then
+    if [ -z $1 ] || [ -z $2 ]; then
         echo "Usage : ./elasticdump SRC_INDEX DST_INDEX"
     else
         elasticdump   --input=http://localhost:9200/$1 --output=http://localhost:9200/$2 --type=mapping
@@ -23,7 +23,7 @@ function elasticdump_mapping
 function elasticdump_data
 {
 
-    if [ -z $1 $2 ]; then
+    if [ -z $1 ] || [ -z $2 ]; then
         echo "Usage : ./elasticdump SRC_INDEX DST_INDEX"
     else
         elasticdump   --input=http://localhost:9200/$1 --output=http://localhost:9200/$2 --type=data
