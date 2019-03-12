@@ -43,6 +43,11 @@ function install_ansible_package
 
 }
 
+function install_telegram_package
+{
+    sudo pip install python-telegram-bot
+}
+
 if [ -z $1 ]; then
         echo "##################### Menu ##############"
         echo " $ ./tuto7 [Command]"
@@ -51,6 +56,7 @@ if [ -z $1 ]; then
         echo "         2 : configure es hot template"
         echo "         3 : install curator package"
         echo "         4 : install ansible package"
+        echo "         5 : install telegram package"
         echo "#########################################";
         exit 1;
 fi
@@ -60,5 +66,6 @@ case "$1" in
         "2" ) configure_es_template;;
         "3" ) install_elasticdump_package;;
         "4" ) install_ansible_package;;
+        "5" ) install_telegram_package;;
         *) echo "Incorrect Command" ;;
 esac
