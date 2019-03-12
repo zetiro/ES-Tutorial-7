@@ -54,7 +54,7 @@ if [ -z $1 ]; then
         echo "#####################%%%%%%##############"
         echo "         1 : install curator package"
         echo "         2 : configure es hot template"
-        echo "         3 : install curator package"
+        echo "         3 : install elasticdump package"
         echo "         4 : install ansible package"
         echo "         5 : install telegram package"
         echo "#########################################";
