@@ -1,15 +1,15 @@
 - name: install rolling restart script
   template:
     src: rolling_restart.sh.j2
-    dest: /home/centos/rolling_restart.sh
+    dest: /home/ec2-user/rolling_restart.sh
 
 - name: change mode script
   file:
-    path: /home/centos/rolling_restart.sh
+    path: /home/ec2-user/rolling_restart.sh
     mode: 0755
 
 - name: run script
-  shell: /home/centos/rolling_restart.sh
+  shell: /home/ec2-user/rolling_restart.sh
   register: elasticsearch_update
 
 ##- name: reboot

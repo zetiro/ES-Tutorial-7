@@ -15,8 +15,8 @@ filebeat.prospectors:
 
   # Paths that should be crawled and fetched. Glob based paths.
   paths:
-    - /usr/local/elasticsearch/logs/{{ cluster_name }}.log
-    - /usr/local/elasticsearch/logs/*_slowlog.log
+    - /var/lib/elasticsearch/logs/{{ cluster_name }}.log
+    - /var/lib/elasticsearch/logs/*_slowlog.log
 
   multiline.pattern: '^\[[0-9]{4}-[0-9]{2}-[0-9]{2}'
   multiline.negate: true
@@ -30,9 +30,9 @@ filebeat.prospectors:
 
 #-------------------------- Elasticsearch output ------------------------------
 output.elasticsearch:
-  hosts: ["infra-log-es.is.daumkakao.io:9200"]
+  hosts: ["localhost:9200"]
   index: "elasticsearch-logs-%{+yyyy.MM.dd}"
 
 #------------------------------ Logstash output -------------------------------
 output.logstash:
-  hosts: ["slow-logstash.daumkakao.io:5043"]
+  hosts: ["localhost:5043"]

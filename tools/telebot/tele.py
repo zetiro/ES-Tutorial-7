@@ -4,14 +4,14 @@
 import json
 import urllib3
 from telegram.ext import Updater, MessageHandler, Filters, CommandHandler  # import modules
-import es_mod
+import esbot
 
 my_token = '772777649:AAE_YeHD8iiEbEt1LDlFgxWlalwInVgfyLI'
 print('start telegram chat bot')
 
 def es_command(bot, update) :
     cmd = update.message.text.split(" ")
-    rtn = es_mod.es(cmd)
+    rtn = esbot.es(cmd)
 
     update.message.reply_text(rtn)
 

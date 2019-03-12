@@ -2,8 +2,8 @@ cluster.name: {{ cluster_name }}
 node.name: {{ ansible_nodename }}
 node.master: {{ master|lower }}
 node.data: {{ data|lower }}
-path.data: /usr/local/elasticsearch/data
-path.logs: /usr/local/elasticsearch/logs
+path.data: /var/lib/elasticsearch/data
+path.logs: /var/lib/elasticsearch/logs
 network.bind_host: 0.0.0.0
 network.publish_host: {{ ansible_eth0["ipv4"]["address"] }}
 discovery.zen.minimum_master_nodes: {{ minimum_master_nodes }}

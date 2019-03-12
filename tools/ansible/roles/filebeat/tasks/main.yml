@@ -1,11 +1,11 @@
 - name: download filebeat
   get_url:
     url: "{{ filebeat_download_url }}"
-    dest: /home/centos/filebeat-{{ filebeat_version }}-x86_64.rpm
+    dest: /home/ec2-user/filebeat-{{ filebeat_version }}-x86_64.rpm
 
 - name: install filebeat
   yum:
-    name: /home/centos/filebeat-{{ filebeat_version }}-x86_64.rpm
+    name: /home/ec2-user/filebeat-{{ filebeat_version }}-x86_64.rpm
     state: present
   become: true
 

@@ -19,7 +19,7 @@ actions:
   2:
     action: open
     options:
-      disable_action: True
+      disable_action: False
     filters:
     - filtertype: pattern
       kind: prefix
