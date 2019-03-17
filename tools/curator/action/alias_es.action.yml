@@ -2,12 +2,12 @@ actions:
   1:
    action: alias
    options:
-      name: test-today
+      name: today
    add:
       filters:
       - filtertype: pattern
         kind: prefix
-        value: 'test-*'
+        value: '^[a-z].*-'
         exclude:
       - filtertype: age
         source: name
@@ -20,7 +20,7 @@ actions:
       filters:
       - filtertype: pattern
         kind: prefix
-        value: 'test-*'
+        value: '^[a-z].*-'
         exclude:
       - filtertype: age
         source: name

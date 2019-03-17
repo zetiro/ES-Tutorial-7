@@ -9,11 +9,11 @@ actions:
     filters:
     - filtertype: pattern
       kind: prefix
-      value: '^[a-z].*'
+      value: '^[a-z].*-'
       exclude:
     - filtertype: age
       source: creation_date
       direction: older
       unit: days
-      unit_count: 1
+      unit_count: 0
       exclude:
