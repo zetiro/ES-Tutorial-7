@@ -4,7 +4,7 @@ function elasticdump_analyzer
 {
 
     if [ -z $1 ] || [ -z $2 ]; then
-        echo "Usage : ./elasticdump SRC_INDEX DST_INDEX"
+        echo "Usage : ./elasticdump 1 SRC_INDEX DST_INDEX"
     else
         elasticdump   --input=http://localhost:9200/$1 --output=http://localhost:9200/$2 --type=analyzer
     fi
@@ -14,7 +14,7 @@ function elasticdump_mapping
 {
 
     if [ -z $1 ] || [ -z $2 ]; then
-        echo "Usage : ./elasticdump SRC_INDEX DST_INDEX"
+        echo "Usage : ./elasticdump 2 SRC_INDEX DST_INDEX"
     else
         elasticdump   --input=http://localhost:9200/$1 --output=http://localhost:9200/$2 --type=mapping
     fi
@@ -24,7 +24,7 @@ function elasticdump_data
 {
 
     if [ -z $1 ] || [ -z $2 ]; then
-        echo "Usage : ./elasticdump SRC_INDEX DST_INDEX"
+        echo "Usage : ./elasticdump 3 SRC_INDEX DST_INDEX"
     else
         elasticdump   --input=http://localhost:9200/$1 --output=http://localhost:9200/$2 --type=data
     fi
@@ -34,7 +34,7 @@ function elasticdump_mapping_to_local_file
 {
 
     if [ -z $1 ]; then
-        echo "Usage : ./elasticdump SRC_INDEX"
+        echo "Usage : ./elasticdump 4 SRC_INDEX"
     else
         elasticdump   --input=http://localhost:9200/$1 --output=./local_mapping.json --type=mapping
     fi
@@ -44,7 +44,7 @@ function elasticdump_data_to_local_file
 {
 
     if [ -z $1 ]; then
-        echo "Usage : ./elasticdump SRC_INDEX"
+        echo "Usage : ./elasticdump 5 SRC_INDEX"
     else
         elasticdump   --input=http://localhost:9200/$1 --output=./local_data.json --type=data
     fi
