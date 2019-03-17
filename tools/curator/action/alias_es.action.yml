@@ -2,7 +2,7 @@ actions:
   1:
    action: alias
    options:
-      name: today
+      name: alias-today
    add:
       filters:
       - filtertype: pattern

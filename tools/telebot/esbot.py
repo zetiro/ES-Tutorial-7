@@ -10,23 +10,28 @@ def es(cmd):
         header = { 'Content-Type': 'application/json' }
         data = {}
         if cmd[1] == "i":
-            es_rtn('GET', "localhost:9200", data, header)
+            rtn = es_rtn('GET', "localhost:9200", data, header)
         else:
-            print "incorrect commands"
+            rtn = "incorrect commands"
+        print rtn
+        return rtn
+
     except IndexError:
-        print "Usage : ./esbot [options] [Cluster URL]\n\n\
+        rtn = "Usage : ./esbot [options] [Cluster URL]\n\n\
         i : ES Info\n\
         "
+        print rtn
+        return rtn
 
 def es_rtn(method, cmd, data=None, header=None):
     http = urllib3.PoolManager()
 
     try:
-        rtn = http.request(method,cmd,body=json.dumps(data),headers=header)
+        rtn = http.request(method,cmd,body=json.dumps(data),headers=header).data
     except urllib3.exceptions.HTTPError as errh:
-        print ("Http Error:",errh)
+        rtn = "Http Error:",errh
 
-    print rtn.data
+    return rtn
 
 if __name__ == '__main__':
     es(sys.argv)
