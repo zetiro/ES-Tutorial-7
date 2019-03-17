@@ -30,9 +30,7 @@ Product Version. 6.6.0(2019/02/07 기준 Latest Ver.)
 #####################%%%%%%##############
          1 : install curator package
          2 : configure es hot template
-         3 : install curator package
-         4 : install ansible package
+         3 : install elasticdump package
+         4 : install telegram package
+         5 : install ansible package
 #########################################
-
-```
-

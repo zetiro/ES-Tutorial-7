@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 function install_curator_package
 {
@@ -37,15 +37,15 @@ function install_elasticdump_package
     sudo npm install elasticdump -g
 }
 
+function install_telegram_package
+{
+    sudo pip install python-telegram-bot
+}
+
 function install_ansible_package
 {
     sudo yum -y install ansible
 
-}
-
-function install_telegram_package
-{
-    sudo pip install python-telegram-bot
 }
 
 if [ -z $1 ]; then
@@ -55,8 +55,8 @@ if [ -z $1 ]; then
         echo "         1 : install curator package"
         echo "         2 : configure es hot template"
         echo "         3 : install elasticdump package"
-        echo "         4 : install ansible package"
-        echo "         5 : install telegram package"
+        echo "         4 : install telegram package"
+        echo "         5 : install ansible package"
         echo "#########################################";
         exit 1;
 fi
@@ -65,7 +65,7 @@ case "$1" in
         "1" ) install_curator_package;;
         "2" ) configure_es_template;;
         "3" ) install_elasticdump_package;;
-        "4" ) install_ansible_package;;
-        "5" ) install_telegram_package;;
+        "4" ) install_telegram_package;;
+        "5" ) install_ansible_package;;
         *) echo "Incorrect Command" ;;
 esac
