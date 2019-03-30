@@ -1,7 +1,7 @@
 #!/bin/bash
 
-/bin/curator --dry-run --config config/es.config.yml action/es.action.yml
-/bin/curator --config config/es.config.yml action/es.action.yml
+/bin/curator --dry-run --config config/es.config.yml action/es.action.yml # dry-run
+/bin/curator --config config/es.config.yml action/es.action.yml # real
 
 ##/bin/curator --dry-run --config config/es.config.yml action/alias_es.action.yml
 ##/bin/curator --config config/es.config.yml action/alias_es.action.yml
