@@ -1,4 +1,4 @@
-client:
+client: # https://www.elastic.co/guide/en/elasticsearch/client/curator/5.6/configfile.html
   hosts:
     - localhost
   port: 9200
